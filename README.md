@@ -1,5 +1,29 @@
 # ESP32 Firmware
 
+
+## System Architecture
+
+```mermaid
+flowchart TD
+    APP["Flutter App"] <-->|BLE| ESP["ESP32 Firmware"]
+
+    GPS["GPS Module"] -->|UART| ESP
+    BTN["Physical Button"] --> ESP
+
+    ESP -->|I2C| OLED["SH1107 OLED"]
+    ESP <-->|SPI| SD["SD Card / WAV Files"]
+    ESP -->|I2S| AMP["Audio Amplifier / Speaker"]
+
+    ESP --> GEO["On-device Geofencing"]
+    GEO -->|Arrival Event| ESP
+```
+
+The firmware handles BLE communication, OLED animations,
+GPS tracking, button input, and WAV playback.
+
+The ESP32 can also detect arrival at configured locations
+and play location-specific audio without the mobile app.
+
 ## Files
 - `thaigotchi_firmware.ino` — Main Arduino sketch
 - `animations.h` — OLED animation frames (replace placeholders with image2cpp output)
@@ -61,4 +85,4 @@ behavior still require testing on real hardware.
    - `pip install gtts`
    - `python3 generate_audio.py`
    - Copy output WAVs to SD card
-3. Upload `thaigotchi_v2.ino` via Arduino IDE
+3. Upload `thaigotchi_firmware.ino` via Arduino IDE
