@@ -29,6 +29,22 @@ and play location-specific audio without the mobile app.
 - `animations.h` — OLED animation frames (replace placeholders with image2cpp output)
 - `generate_audio.py` — Python script to generate WAV files for SD card
 
+## Hardware Prototype
+
+The images below document the physical prototype and its hand-wired circuit board.
+
+<p align="center">
+  <img src="docs/images/device-prototype.png" alt="Prototype enclosure with OLED screen" width="320">
+</p>
+
+| Front of Perfboard | Back of Perfboard |
+|:---:|:---:|
+| <img src="docs/images/hardware-front.jpeg" alt="ESP32, OLED and hardware modules mounted on perfboard" width="360"> | <img src="docs/images/hardware-back.jpeg" alt="Hand-wired connections on the back of the perfboard" width="360"> |
+
+> These images show the prototype hardware. A successful firmware compile alone does not verify end-to-end BLE, GPS, audio or OLED functionality on a physical device.
+
+For app screenshots and the project poster, see the [Thaigotchi App repository](https://github.com/ratamon2606-create/thaigotchi_app).
+
 ## Hardware Connections
 
 | Component | ESP32 GPIO | Interface |
