@@ -37,4 +37,5 @@ jobs:
         run: |
           arduino-cli compile \
             --fqbn esp32:esp32:esp32 \
+            --board-options PartitionScheme=huge_app \
             .
